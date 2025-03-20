@@ -1,0 +1,38 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Website Reports Archive</title>
+  <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+  <h1>Website Reports Archive</h1>
+  <p>Total Reports: {{ total }}</p>
+  <table border="1">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>URL</th>
+        <th>Status Code</th>
+        <th>Date Reported</th>
+        <th>Date Retrieved</th>
+        <th>Malicious?</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for report in reports %}
+      <tr>
+        <td>{{ report.id }}</td>
+        <td>{{ report.url }}</td>
+        <td>{{ report.status_code }}</td>
+        <td>{{ report.date_reported }}</td>
+        <td>{{ report.date_retrieved }}</td>
+        <td>{{ report.is_malicious }}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</body>
+</html>
